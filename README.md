@@ -8,21 +8,25 @@
     * [create-account](#create-account)
     * [transfer](#transfer)
     * [balance](#balance)
-  * [How it works](#how-it-works-1)
+  * [Project Structure](#project-structure)
 <!-- TOC -->
 
 ToyChain is a simple Client-Server blockchain implementation in Rust.
 
 ## How it works
 
-ToyChain is a simple blockchain implementation that uses a client-server architecture. The server node listens for operation requests from clients and processes them.
-A requested operation could result in a transaction being added to the blockchain or a response being sent back to the client.
+ToyChain is a simple blockchain implementation that uses a client-server architecture. The server node listens for
+operation requests from clients and processes them.
+A requested operation could result in a transaction being added to the blockchain or a response being sent back to the
+client.
 
-The server is multi-threaded, one thread handles communication with clients and the other thread handles minting new blocks.
+The server is multi-threaded, one thread handles communication with clients and the other thread handles minting new
+blocks.
 
 ![process_flow.png](process_flow.png)
 
 The server takes care of the following aspects of the blockchain:
+
 - Minting new blocks
 - Adding transactions to the blockchain
 - Validating transactions
@@ -120,4 +124,11 @@ This will look at all the transactions on the blockchain and calculate the balan
 For this example, we use a simple list data structure to store the transactions. In a real-world scenario, we would use
 a more efficient data structure like a Merkle tree.
 
-## How it works
+## Project Structure
+
+The code is split into 3 files:
+
+- `main.rs`: Contains the main function that parses the command line arguments and calls the appropriate function. Acts
+  as one-shot client.
+- `server.rs`: Contains the server blockchain implementation.
+- `common.rs`: Contains the common data structures used by the server and client.
